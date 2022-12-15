@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Remove HTMLTags",
+  "description": "Remove HTML tags.",
+  "version": "1.1.0",
+  "icons": {
+    "64": "icons/icon.png"
+  },
+  "background": {
+    "scripts": ["background_script.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://metruyencv.com/*"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "js": ["content_script.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "action/index.html",
+    "default_title": "Remove HTMLTags"
+  },
+  "options_ui": {
+    "page": "options/index.html"
+  }
+}
