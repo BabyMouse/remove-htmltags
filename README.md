@@ -38,8 +38,8 @@ GitHub: https://github.com/BabyMouse/remove-htmltags
 ## Minimum supported browser versions
 | Browser                 	| Version 	|
 |-------------------------	|:---------:|
-| Firefox                 	|     	    |
-|                       	|     	    |
+| Firefox                 	|  108      |
+| Firefox for Android      	|  110 	    |
 |                     	    |     	    |
 
 <a id="changelog"></a>
