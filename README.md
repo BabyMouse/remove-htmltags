@@ -27,11 +27,11 @@ Remove HTML Tags extension for Firefox browser.
 <a id="release"></a>
 
 ## Release
-
+Version 1.0: https://github.com/BabyMouse/remove-htmltags/tree/main/web-ext-artifacts
 <a id="source"></a>
 
 ## Free and Open Source
-GitHub:
+GitHub: https://github.com/BabyMouse/remove-htmltags
 
 <a id="minimum"></a>
 
@@ -45,3 +45,4 @@ GitHub:
 <a id="changelog"></a>
 
 ## Changelog
+Link: https://github.com/BabyMouse/remove-htmltags/blob/main/CHANGELOG.md
