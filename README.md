@@ -24,6 +24,10 @@ Remove HTML Tags extension for Firefox browser.
 
 ## Development
 
+```
+web-ext build
+```
+
 <a id="release"></a>
 
 ## Release
