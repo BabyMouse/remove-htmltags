@@ -1,4 +1,7 @@
 # Remove HTML tags
+- Created: 2022.12.15
+- Updated: 2022.12.16
+
 Remove HTML Tags extension for Firefox browser.
 
 ## Table of contents

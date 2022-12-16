@@ -1,7 +1,15 @@
-// "matches": ["*://metruyencv.com/*"]
+// "matches": ["*://metruyenchu.com/*", "*://metruyencv.com/*"]
+
+console.log(`Script loaded: ${document.readyState}\n`);
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM fully loaded and parsed");
+});
 
 document.addEventListener("readystatechange", (event) => {
   removeTags();
+  replaceTags();
+  console.log(`removeTags() loaded: ${document.readyState}\n`);
 });
 
 function removeTags() {
@@ -52,4 +60,13 @@ function removeTags() {
     elem.style.display = "none";
     elem.remove();
   });
+}
+
+function replaceTags() {
+  const elem = document.getElementById("article");
+  if (elem) {
+    console.log("#article style: ", elem.style);
+    elem.style.display = "block";
+    //elem.style.flexWrap = "";
+  }
 }
