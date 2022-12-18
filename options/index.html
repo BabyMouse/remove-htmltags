@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <link href="style.css" rel="stylesheet" />
     <script async src="script.js"></script>
   </head>
   <body>
-    <h1 id="myHeading">My content</h1>
+    <h1>Remove HTMLTags</h1>
+    <form>
+      <label>Timeout:</label>
+      <input
+        id="timeout"
+        type="number"
+        inputmode="numeric"
+        pattern="\d*"
+        placeholder="Second(s)"
+        value="3"
+        min="0"
+        required
+      /><span class="validity"></span>
+      <div>
+        <button type="submit">Save preferences</button
+        ><button id="restore" type="button">Retore defaut</button>
+      </div>
+    </form>
   </body>
 </html>
