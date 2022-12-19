@@ -2,11 +2,17 @@
   "manifest_version": 2,
   "name": "Remove HTMLTags",
   "description": "Remove HTML tags.",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "icons": {
     "64": "icons/icon.png"
   },
-  "permissions": ["<all_urls>"],
+  "homepage_url": "https://github.com/BabyMouse/remove-htmltags",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{2ab832d6-c295-410f-9c54-d2f99df671f3}"
+    }
+  },
+  "permissions": ["browsingData", "notifications", "storage"],
   "background": {
     "scripts": ["background_script.js"],
     "persistent": false
@@ -21,7 +27,7 @@
       ],
       "run_at": "document_start",
       "all_frames": true,
-      "js": ["content_script/metruyenchu.js"]
+      "js": ["content_script/metruyenchu_start.js"]
     },
     {
       "matches": [

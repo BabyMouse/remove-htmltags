@@ -1,43 +1,38 @@
 const _num = new Set('0123456789');
+const _defaultSettings = {
+  timeout: 5,
+};
 
 function isNumberKey(e) {
   if (!_num.has(e.key)) e.preventDefault();
 }
 
-function saveOptions(e) {
-  //   browser.storage.sync.set({
-  //     colour: document.querySelector('#colour').value,
-  //   });
+function saveOptions() {
   function getTimeout() {
     return document.getElementById('timeout').value;
   }
 
-  const timeout = getTimeout();
-
   browser.storage.local.set({
-    timeout,
+    timeout: getTimeout(),
   });
-  e.preventDefault();
 }
 
 function updateUI(restoredSettings) {
-  //   let storageItem = browser.storage.managed.get('colour');
-  //   storageItem.then((res) => {
-  //     document.querySelector('#managed-colour').innerText = res.colour;
-  //   });
-  //   let gettingItem = browser.storage.sync.get('colour');
-  //   gettingItem.then((res) => {
-  //     document.querySelector('#colour').value = res.colour || 'Firefox red';
-  //   });
-  document.getElementById('timeout').value = restoredSettings.timeout;
+  const timeout = restoredSettings.timeout;
+  if (timeout == undefined)
+    document.getElementById('error').textContent = `[browser.storage.local] Timeout: ${timeout}`;
+  document.getElementById('timeout').value = timeout ?? _defaultSettings.timeout;
 }
 
 function restoreDefault() {
-  document.getElementById('timeout').value = 3;
+  document.getElementById('timeout').value = _defaultSettings.timeout;
 }
 
-//document.addEventListener('DOMContentLoaded', updateUI);
-browser.storage.local.get().then(updateUI);
-document.querySelector('form').addEventListener('submit', saveOptions);
+function onError(e) {
+  document.getElementById('error').textContent = `[browser.storage.local] ${e}`;
+}
+
+browser.storage.local.get().then(updateUI, onError);
 document.getElementById('timeout').addEventListener('keydown', isNumberKey);
+document.getElementById('save').addEventListener('click', saveOptions);
 document.getElementById('restore').addEventListener('click', restoreDefault);

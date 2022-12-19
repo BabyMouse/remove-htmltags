@@ -7,7 +7,8 @@
   </head>
   <body>
     <h1>Remove HTMLTags</h1>
-    <form>
+    <div id="error"></div>
+    <div>
       <label>Timeout:</label>
       <input
         id="timeout"
@@ -19,10 +20,10 @@
         min="0"
         required
       /><span class="validity"></span>
-      <div>
-        <button type="submit">Save preferences</button
-        ><button id="restore" type="button">Retore defaut</button>
-      </div>
-    </form>
+    </div>
+    <div>
+      <button id="save" type="submit">Save preferences</button
+      ><button id="restore" type="button">Retore defaut</button>
+    </div>
   </body>
 </html>
