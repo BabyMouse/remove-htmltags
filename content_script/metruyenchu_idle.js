@@ -16,11 +16,21 @@ if (elem != null) {
   console.log('[metruyenchu_idle.js] #article style: ', elem, ` - ${document.readyState}`);
 }
 
-window.addEventListener('load', (event) => {
+window.addEventListener('load', () => {
   setTimeout(afterloaded, timeout * 1000);
 });
 
 function afterloaded() {
+  document.querySelectorAll('div[id^="gliaplayer-zmedia_"]').forEach((elem) => {
+    elem.remove();
+    console.log('[metruyenchu_idle.js] gliaplayer-zmedia_');
+  });
+
+  document.querySelectorAll('div[id^="tpads-mb-"]').forEach((elem) => {
+    elem.remove();
+    console.log('[metruyenchu_idle.js] tpads-mb-');
+  });
+
   document.querySelectorAll('a[href^="https://tags.native-ad.net"]').forEach((elem) => {
     elem.parentNode.remove();
     console.log('[metruyenchu_idle.js] https://tags.native-ad.net');

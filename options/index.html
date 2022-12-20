@@ -2,14 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <link href="style.css" rel="stylesheet" />
     <script async src="script.js"></script>
   </head>
   <body>
-    <h1>Remove HTMLTags</h1>
-    <div id="error"></div>
+    <h1>Settings</h1>
+    <div class="display-none">
+      <input id="alert1" type="checkbox" />
+      <label class="close" title="close" for="alert1"></label>
+      <p class="inner">Error...</p>
+    </div>
     <div>
-      <label>Timeout:</label>
+      <span>Timeout:</span>
       <input
         id="timeout"
         type="number"
@@ -22,8 +27,8 @@
       /><span class="validity"></span>
     </div>
     <div>
-      <button id="save" type="submit">Save preferences</button
-      ><button id="restore" type="button">Retore defaut</button>
+      <button id="save" class="btn" type="submit">Save Settings</button
+      ><button id="restore" class="btn" type="button">Retore Defaut</button>
     </div>
   </body>
 </html>

@@ -86,9 +86,4 @@ function removeTags() {
     elem.style.display = 'none';
     elem.parentNode.remove();
   });
-
-  document.querySelectorAll('div[id^="gliaplayer-zmedia_"]').forEach((elem) => {
-    elem.remove();
-    console.log('[metruyenchu_start.js] gliaplayer-zmedia_');
-  });
 }

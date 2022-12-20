@@ -4,9 +4,9 @@ module.exports = {
     overwriteDest: true,
   },
   run: {
-    adbBin: "D:Codeplatform-tools_r33.0.3-windows",
-    target: ["firefox-android"],
-    firefoxApk: "org.mozilla.fenix",
+    adbBin: 'D:Codeplatform-tools_r33.0.3-windows',
+    target: ['firefox-android'],
+    firefoxApk: 'org.mozilla.fenix',
   },
-  ignoreFiles: ["web-ext-config.js", "temp.js"],
+  ignoreFiles: ['web-ext-config.js', 'temp.js', 'temp.html', 'temp.css'],
 };
