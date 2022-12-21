@@ -1,38 +1,47 @@
 /* Example:
-    <div class="alert error">
-      <input id="alert1" type="checkbox" />
-      <label class="close" title="close" for="alert1"></label>
-      <p class="inner">Error...</p>
+    <div class="alert-box">
+      <input type="checkbox" id="alert2" />
+      <div class="alert error">
+        <label class="close" title="close" for="alert2"></label>
+        <p class="inner">Error alert.</p>
+      </div>
     </div>
 */
-.alert {
+div.alert-box {
   width: 70%;
 }
-.alert .inner {
-  display: block;
-  padding: 6px;
-  margin: 6px;
-  border-radius: 3px;
-  border: 1px solid rgba(6, 241, 226, 0.81);
+.alert {
   background-color: rgba(1, 204, 220, 0.16);
-}
-.alert > .close::after {
-  float: right;
-  margin: 1em 1em 0px 0px;
-  padding: 0px;
-  cursor: pointer;
-  animation: blink-1 10s infinite both;
-  content: '✖';
-  font-weight: bolder;
-}
-.alert .inner,
-.alert .close {
+  border-color: rgba(6, 241, 226, 0.81);
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px 1px 1px 5px;
   color: rgb(88, 88, 88);
+  margin: 0;
 }
-.alert input {
+.alert-box > input {
   display: none;
 }
-.alert input:checked ~ * {
+.alert > .close {
+  float: right;
+}
+.alert > .close::after {
+  /* animation: blink-1 10s infinite both; */
+  content: '✖';
+  cursor: pointer;
+  float: right;
+  font-size: large;
+  font-weight: bolder;
+  height: 25px;
+  text-align: center;
+  width: 25px;
+}
+.alert > .inner {
+  display: block;
+  padding: 6px;
+  margin: 12px 12px 6px 6px;
+}
+.alert-box > input:checked ~ * {
   animation-name: dismiss, hide;
   animation-duration: 300ms;
   animation-iteration-count: 1;
@@ -40,44 +49,37 @@
   animation-fill-mode: forwards;
   animation-delay: 0s, 100ms;
 }
-.alert.error .inner {
+.alert.error {
   background-color: rgba(220, 17, 1, 0.16);
-  border: 1px solid rgba(241, 6, 6, 0.81);
+  border-color: rgba(241, 6, 6, 0.81);
 }
-.alert.error .inner,
+.alert.error,
 .alert.error .close {
   color: rgb(185, 74, 72);
 }
-.alert.success .inner {
+.alert.success {
   background-color: rgba(7, 149, 66, 0.12);
-  border: 1px solid rgba(36, 241, 6, 0.46);
+  border-color: rgba(36, 241, 6, 0.46);
 }
-.alert.success .inner,
+.alert.success,
 .alert.success .close {
   color: rgb(70, 136, 71);
 }
-.alert.info .inner {
+.alert.info {
   background-color: rgba(255, 246, 191, 0.12);
-  border: 1px solid rgba(255, 211, 36, 0.46);
+  border-color: rgba(255, 211, 36, 0.46);
 }
-.alert.info .inner,
+.alert.info,
 .alert.info .close {
   color: #8a7009;
 }
-.alert.warning .inner {
-  border: 1px solid rgba(241, 142, 6, 0.81);
+.alert.warning {
   background-color: rgba(220, 128, 1, 0.16);
+  border-color: rgba(241, 142, 6, 0.81);
 }
-.alert.warning .inner,
+.alert.warning,
 .alert.warning .close {
   color: rgb(192, 152, 83);
-}
-.alert .inner,
-.alert.error .inner,
-.alert.success .inner,
-.alert.info .inner,
-.alert.warning .inner {
-  border-left-width: 5px;
 }
 @keyframes dismiss {
   0% {

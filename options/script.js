@@ -1,4 +1,4 @@
-const _num = new Set(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Enter']);
+const _num = new Set([...new Set('0123456789'), ...new Set(['Delete', 'Backspace', 'Enter'])]);
 const _defaultSettings = {
   timeout: 5,
 };
@@ -16,7 +16,14 @@ function showAlert(type, message) {
 
 function saveOptions() {
   function getTimeout() {
-    return document.getElementById('timeout').value;
+    const timeout = document.getElementById('timeout').value;
+    if (Number.isInteger(timeout)) {
+      return timeout < 0 ? _defaultSettings.timeout : timeout;
+    } else {
+      showAlert('error', `${timeout} (${typeof timeout})`);
+      document.getElementById('timeout').value = _defaultSettings.timeout;
+      return _defaultSettings.timeout;
+    }
   }
 
   browser.storage.local.set({
@@ -26,8 +33,12 @@ function saveOptions() {
 
 function updateUI(restoredSettings) {
   const timeout = restoredSettings.timeout;
-  if (timeout == undefined) showAlert('error', `[browser.storage.local] Timeout: ${timeout}`);
-  document.getElementById('timeout').value = timeout ?? _defaultSettings.timeout;
+  if (Number.isInteger(timeout)) {
+    document.getElementById('timeout').value = timeout < 0 ? _defaultSettings.timeout : timeout;
+  } else {
+    showAlert('error', `[browser.storage.local] Timeout: ${timeout} (${typeof timeout})`);
+    document.getElementById('timeout').value = _defaultSettings.timeout;
+  }
 }
 
 function restoreDefault() {

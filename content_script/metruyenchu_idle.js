@@ -4,7 +4,10 @@ console.log(`[metruyenchu_idle.js] ${document.readyState}\n`);
 
 let timeout = 5;
 browser.storage.local.get(['timeout'], (result) => {
-  timeout = result.timeout ?? timeout;
+  console.log('[metruyenchu_idle.js] ', result);
+  if (Number.isInteger(result.timeout) && result.timeout > -1) {
+    timeout = result.timeout;
+  }
 });
 
 const elem = document.getElementById('article');
