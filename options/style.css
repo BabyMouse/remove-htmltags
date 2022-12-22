@@ -9,9 +9,6 @@ div {
 #error {
   color: #f00;
 }
-.display-none {
-  display: none;
-}
 #timeout {
   text-align: center;
   width: 100px;
