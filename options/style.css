@@ -6,9 +6,6 @@ body {
 div {
   margin-bottom: 10px;
 }
-#error {
-  color: #f00;
-}
 #timeout {
   text-align: center;
   width: 100px;
