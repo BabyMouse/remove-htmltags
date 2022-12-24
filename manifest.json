@@ -2,11 +2,15 @@
   "manifest_version": 2,
   "name": "Remove HTMLTags",
   "description": "Remove HTML tags.",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "icons": {
-    "64": "icons/icon.png"
+    "64": "icons/icon-64.png"
   },
   "homepage_url": "https://github.com/BabyMouse/remove-htmltags",
+  "developer": {
+    "name": "Trát Quang Thụy",
+    "url": "https://github.com/BabyMouse/remove-htmltags"
+  },
   "browser_specific_settings": {
     "gecko": {
       "id": "{2ab832d6-c295-410f-9c54-d2f99df671f3}"

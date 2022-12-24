@@ -45,5 +45,9 @@ function afterloaded() {
     console.log('[metruyenchu_idle.js] iframe');
   });
 
+  browser.runtime.sendMessage({
+    title: document.title,
+    content: `• The script has been completed.\n• readyState: ${document.readyState}`,
+  });
   console.log(`[metruyenchu_idle.js] afterloaded() - ${document.readyState}`);
 }

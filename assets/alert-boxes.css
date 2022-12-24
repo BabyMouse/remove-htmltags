@@ -3,7 +3,7 @@
       <input type="checkbox" id="alert2" />
       <div class="alert error">
         <label class="close" title="close" for="alert2"></label>
-        <p class="inner">Error alert.</p>
+        <ul class="inner"></ul>
       </div>
     </div>
 */
@@ -16,7 +16,7 @@
   color: rgb(88, 88, 88);
   margin: 0;
   padding-bottom: 5px;
-  width: 70%;
+  width: 90%;
 }
 .display-none {
   display: none;
