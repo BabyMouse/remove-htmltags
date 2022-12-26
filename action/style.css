@@ -1,3 +1,21 @@
-h1 {
-  font-style: italic;
+@import url('../assets/buttons.css');
+#lbHost,
+#lbCode {
+  float: left;
+}
+#host {
+  margin-bottom: 20px;
+  width: calc(100% - 0.5em);
+}
+.tools-bar {
+  float: right;
+}
+#lbWrap {
+  font-weight: normal;
+}
+#btnCopy {
+  margin-left: 5px;
+}
+#code {
+  width: calc(100% - 0.5em);
 }

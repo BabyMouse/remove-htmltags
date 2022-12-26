@@ -1,10 +1,16 @@
 function notify(message) {
-  browser.notifications.create({
-    type: 'basic',
-    iconUrl: browser.runtime.getURL('icons/icon-64.png'),
-    title: message.title,
-    message: message.content,
-  });
+  if (message.req === 'notify')
+    browser.notifications.create({
+      type: 'basic',
+      title: message.title,
+      message: message.content,
+    });
 }
 
 browser.runtime.onMessage.addListener(notify);
+
+// function handleActivated(activeInfo) {
+//   console.log(`Tab ${activeInfo.tabId} was activated`);
+// }
+
+// browser.tabs.onActivated.addListener(handleActivated);

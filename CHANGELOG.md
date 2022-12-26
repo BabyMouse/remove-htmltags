@@ -1,12 +1,21 @@
 # Changelog
 - Created: 2022.12.15
-- Updated: 2022.12.16
+- Updated: 2022.12.22
 
 All notable changes to this project will be documented in this file.
 
-## [1.1.0]
+## [1.1.x]
 ### Added
 - 
+
+### Changed
+- 
+
+## [1.1.14] - 2022.12.22
+### Added
+- [`Options`] added `timeout` (run the script after delay some seconds).
+- [`Action`] added `view-source` (for Tab activated).
+- `Notify` "The script has been completed".
 
 ### Changed
 - 

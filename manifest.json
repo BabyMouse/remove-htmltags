@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Remove HTMLTags",
   "description": "Remove HTML tags.",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "icons": {
     "64": "icons/icon-64.png"
   },
@@ -16,12 +16,16 @@
       "id": "{2ab832d6-c295-410f-9c54-d2f99df671f3}"
     }
   },
-  "permissions": ["browsingData", "notifications", "storage"],
+  "permissions": ["browsingData", "clipboardWrite", "notifications", "storage", "tabs", "<all_urls>"],
   "background": {
     "scripts": ["background_script.js"],
     "persistent": false
   },
   "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script/get_source_code.js"]
+    },
     {
       "matches": [
         "http://metruyenchu.com/*",

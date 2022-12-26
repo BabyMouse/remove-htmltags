@@ -20,10 +20,6 @@ if (elem != null) {
   console.log('[metruyenchu_idle.js] #article style: ', elem, ` - ${document.readyState}`);
 }
 
-window.addEventListener('load', () => {
-  setTimeout(afterloaded, timeout * 1000);
-});
-
 function afterloaded() {
   document.querySelectorAll('div[id^="gliaplayer-zmedia_"]').forEach((elem) => {
     elem.remove();
@@ -46,8 +42,11 @@ function afterloaded() {
   });
 
   browser.runtime.sendMessage({
+    req: 'notify',
     title: document.title,
-    content: `• The script has been completed.\n• readyState: ${document.readyState}`,
+    content: `• The script has been completed.\n• readyState: ${document.readyState}.`,
   });
   console.log(`[metruyenchu_idle.js] afterloaded() - ${document.readyState}`);
 }
+
+setTimeout(afterloaded, timeout * 1000);

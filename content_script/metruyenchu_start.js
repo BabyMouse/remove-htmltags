@@ -2,24 +2,6 @@
 
 console.log(`[metruyenchu_start.js] ${document.readyState}\n`);
 
-window.addEventListener('DOMContentLoaded', (event) => {
-  // DOM fully loaded and parsed
-
-  console.log(`[metruyenchu_start.js] DOMContentLoaded - ${document.readyState}`);
-});
-
-document.addEventListener('readystatechange', (event) => {
-  removeScripts();
-  removeTags();
-  console.log(`[metruyenchu_start.js] removeTags() - ${document.readyState}\n`);
-
-  if (document.readyState == 'interactive') {
-    document.querySelectorAll('body > script:not([src])').forEach((elem) => {
-      elem.remove();
-    });
-  }
-});
-
 function removeScripts() {
   document.querySelectorAll('script[src^="https://www.google-analytics.com"]').forEach((elem) => {
     elem.remove();
@@ -87,3 +69,21 @@ function removeTags() {
     elem.parentNode.remove();
   });
 }
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  // DOM fully loaded and parsed
+
+  console.log(`[metruyenchu_start.js] DOMContentLoaded - ${document.readyState}`);
+});
+
+document.addEventListener('readystatechange', (event) => {
+  removeScripts();
+  removeTags();
+  console.log(`[metruyenchu_start.js] removeTags() - ${document.readyState}\n`);
+
+  if (document.readyState == 'interactive') {
+    document.querySelectorAll('body > script:not([src])').forEach((elem) => {
+      elem.remove();
+    });
+  }
+});
