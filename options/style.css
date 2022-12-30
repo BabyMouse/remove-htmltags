@@ -1,9 +1,13 @@
 @import url('../assets/alert-boxes.css');
 @import url('../assets/buttons.css');
-body {
-  font-size: 1rem;
+
+main {
+  font-size: 14px;
 }
-div {
+article {
+  margin-bottom: 15px;
+}
+section {
   margin-bottom: 10px;
 }
 #timeout {
@@ -25,4 +29,5 @@ input:valid + span::after {
 }
 button {
   margin-right: 10px;
+  width: 100px;
 }

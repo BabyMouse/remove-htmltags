@@ -7,30 +7,50 @@
     <script async src="script.js"></script>
   </head>
   <body>
-    <h1>Settings</h1>
-    <div class="alert-box display-none">
-      <input id="alert1" type="checkbox" />
-      <div class="alert">
-        <label class="close" title="close" for="alert1"></label>
-        <ul class="inner"></ul>
-      </div>
-    </div>
-    <div>
-      <span>Run the script after delay some seconds:</span>
-      <input
-        id="timeout"
-        type="number"
-        inputmode="numeric"
-        pattern="\d*"
-        placeholder="Second(s)"
-        value="3"
-        min="0"
-        required
-      /><span class="validity"></span>
-    </div>
-    <div>
-      <button id="save" class="btn" type="submit">Save Settings</button
-      ><button id="restore" class="btn" type="button">Retore Defaut</button>
-    </div>
+    <main>
+      <h1>Settings</h1>
+      <acticle class="alert-box display-none">
+        <input id="alert1" type="checkbox" />
+        <div class="alert">
+          <label class="close" title="Close" for="alert1"></label>
+          <ul class="inner"></ul>
+        </div>
+      </acticle>
+      <acticle>
+        <h2>System setting</h2>
+        <input id="s_noti" type="checkbox" /><label id="lbs_noti" for="s_noti">Show notifications on system</label>
+      </acticle>
+      <acticle>
+        <h2>For each webpage Settings</h2>
+        <article>
+          <h3>Run the script after delay some seconds</h3>
+          <section>
+            <span>Delay:</span>
+            <input
+              id="timeout"
+              type="number"
+              inputmode="numeric"
+              pattern="\d*"
+              placeholder="Second(s)"
+              value="3"
+              min="0"
+              required
+            /><span class="validity"></span>
+          </section>
+          <section>
+            <span>Show notification:</span>
+            <select id="p_noti">
+              <option value="off" selected>Off</option>
+              <option value="popup">Popup each webpage</option>
+              <option value="system">System notifications</option>
+            </select>
+          </section>
+        </article>
+      </acticle>
+      <acticle>
+        <button id="save" class="btn" type="submit">Save Settings</button>
+        <button id="restore" class="btn" type="button">Retore Defaut</button>
+      </acticle>
+    </main>
   </body>
 </html>

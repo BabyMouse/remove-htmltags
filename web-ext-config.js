@@ -8,5 +8,5 @@ module.exports = {
     target: ['firefox-android'],
     firefoxApk: 'org.mozilla.fenix',
   },
-  ignoreFiles: ['web-ext-config.js', 'temp.js', 'temp.html', 'temp.css'],
+  ignoreFiles: ['web-ext-config.js', 'temp.js', 'temp.html', 'temp.css', 'temp.txt'],
 };

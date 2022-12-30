@@ -1,20 +1,20 @@
 @import url('../assets/buttons.css');
-#lbHost,
-#lbCode {
-  float: left;
+
+#title {
+  vertical-align: 3px;
 }
 #host {
   margin-bottom: 20px;
   width: calc(100% - 0.5em);
 }
-.tools-bar {
+.float--right {
   float: right;
-}
-#lbWrap {
-  font-weight: normal;
 }
 #btnCopy {
   margin-left: 5px;
+}
+#lbCode {
+  vertical-align: -10px;
 }
 #code {
   width: calc(100% - 0.5em);

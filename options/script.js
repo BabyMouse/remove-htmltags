@@ -1,12 +1,10 @@
-const _num = new Set([...new Set('0123456789'), ...['Delete', 'Backspace', 'Enter']]);
+const _acceptedKeys = new Set([...new Set('0123456789'), ...['Delete', 'Backspace', 'Enter']]);
+const _notifications = new Set(['off', 'popup', 'system']);
 const _defaultSettings = {
+  s_noti: false,
   timeout: 5,
+  p_noti: 'off',
 };
-
-function isNumberKey(e) {
-  //showAlert(`${e.key} (${typeof e.key})`, 'info', false);
-  if (!_num.has(e.key)) e.preventDefault();
-}
 
 /**
  * Show message with Alert-Box.
@@ -27,19 +25,39 @@ function showAlert(message, type, isAppend) {
   __inner.append(__elem);
 }
 
+function isNumberKey(e) {
+  //showAlert(`${e.key} (${typeof e.key})`, 'info', false);
+  if (!_acceptedKeys.has(e.key)) e.preventDefault();
+}
+
+function checkS_Noti(e) {
+  document.getElementById('p_noti').options[2].disabled = !e.target.checked;
+  if (!e.target.checked) document.getElementById('p_noti').selectedIndex = 0;
+}
+
 function saveOptions() {
+  function getS_Noti() {
+    return document.getElementById('s_noti').checked;
+  }
   function getTimeout() {
     const __timeout = parseInt(document.getElementById('timeout').value);
     if (Number.isInteger(__timeout)) {
-      if (__timeout < 0) throw "[+getElementById('timeout').value] Timeout must be >= 0.";
+      if (__timeout < 0) throw "[+getElementById('timeout')] Timeout must be >= 0.";
       return __timeout;
     }
-    throw "[+getElementById('timeout').value]Timeout must be number.";
+    throw `[+getElementById('timeout')] = ${__timeout}: Timeout must be number.`;
+  }
+  function getP_Noti() {
+    const __noti = document.getElementById('p_noti').value;
+    if (_notifications.has(__noti)) return __noti;
+    throw `[getElementById('p_noti')] = ${__noti}`;
   }
 
   try {
     browser.storage.local.set({
+      s_noti: getS_Noti(),
       timeout: getTimeout(),
+      p_noti: getP_Noti(),
     });
     showAlert('Successfully saved settings.', 'success', false);
   } catch (error) {
@@ -49,6 +67,7 @@ function saveOptions() {
 }
 
 function updateUI(restoredSettings) {
+  document.getElementById('s_noti').checked = restoredSettings.s_noti;
   const __timeout = parseInt(restoredSettings.timeout);
   if (Number.isInteger(__timeout)) {
     if (__timeout < 0) {
@@ -59,10 +78,19 @@ function updateUI(restoredSettings) {
     showAlert(`[browser.storage.local.get()] Timeout must be number - Rertore default.`, 'error', false);
     document.getElementById('timeout').value = _defaultSettings.timeout;
   }
+
+  const __noti = restoredSettings.p_noti;
+  if (_notifications.has(__noti)) document.getElementById('p_noti').value = __noti;
+  else {
+    showAlert(`[browser.storage.local.get()] = ${__noti}: Rertore default.`, 'error', false);
+    document.getElementById('p_noti').value = _defaultSettings.p_noti;
+  }
 }
 
 function restoreDefault() {
+  document.getElementById('s_noti').checked = _defaultSettings.s_noti;
   document.getElementById('timeout').value = _defaultSettings.timeout;
+  document.getElementById('p_noti').value = _defaultSettings.p_noti;
 }
 
 function onError(e) {
@@ -70,6 +98,7 @@ function onError(e) {
 }
 
 browser.storage.local.get().then(updateUI, onError);
+document.getElementById('s_noti').addEventListener('change', checkS_Noti);
 document.getElementById('timeout').addEventListener('keydown', isNumberKey);
 document.getElementById('save').addEventListener('click', saveOptions);
 document.getElementById('restore').addEventListener('click', restoreDefault);

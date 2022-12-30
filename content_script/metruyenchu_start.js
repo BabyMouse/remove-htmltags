@@ -80,10 +80,4 @@ document.addEventListener('readystatechange', (event) => {
   removeScripts();
   removeTags();
   console.log(`[metruyenchu_start.js] removeTags() - ${document.readyState}\n`);
-
-  if (document.readyState == 'interactive') {
-    document.querySelectorAll('body > script:not([src])').forEach((elem) => {
-      elem.remove();
-    });
-  }
 });

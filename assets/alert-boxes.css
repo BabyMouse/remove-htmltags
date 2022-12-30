@@ -1,11 +1,11 @@
 /* Example:
-    <div class="alert-box">
+    <acticle class="alert-box">
       <input type="checkbox" id="alert2" />
       <div class="alert error">
         <label class="close" title="close" for="alert2"></label>
         <ul class="inner"></ul>
       </div>
-    </div>
+    </acticle>
 */
 .alert {
   background-color: rgba(1, 204, 220, 0.16);
@@ -31,7 +31,7 @@
   content: '✖';
   cursor: pointer;
   float: right;
-  font-size: medium;
+  font-size: large;
   font-weight: bolder;
   height: 25px;
   text-align: center;

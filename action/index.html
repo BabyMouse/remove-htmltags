@@ -8,13 +8,19 @@
   </head>
   <body>
     <h1>Tools</h1>
-    <label id="lbHost" for="host">Host</label>
-    <input id="host" type="text" />
-    <div class="tools-bar">
-      <input id="ckbWrap" type="checkbox" /><label id="lbWrap" for="ckbWrap">Wrap</label>
-      <button id="btnCopy" class="btn">Copy</button>
-    </div>
-    <label id="lbCode" for="code">View source</label>
-    <textarea id="code" rows="10"></textarea>
+    <section>
+      <label id="title" for="host">Host</label>
+      <input id="host" type="text" />
+    </section>
+    <section>
+      <nav>
+        <div class="float--right">
+          <input id="ckbWrap" type="checkbox" /><label id="lbWrap" for="ckbWrap">Word wrap</label>
+          <button id="btnCopy" class="btn">Copy</button>
+        </div>
+        <label id="lbCode" for="code">View source</label>
+        <textarea id="code" rows="20" wrap="off"></textarea>
+      </nav>
+    </section>
   </body>
 </html>
