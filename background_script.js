@@ -10,12 +10,7 @@ function runtimeEventHadler(message) {
   switch (message.req) {
     case 'notify':
       browser.storage.local.get(['s_noti'], (result) => {
-        if (result.s_noti) //notify(message);
-        browser.notifications.create({
-          type: 'basic',
-          title: message.title,
-          message: message.content,
-        });
+        if (result.s_noti) notify(message);
       });
       break;
   }
