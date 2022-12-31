@@ -50,19 +50,19 @@ function removeTags() {
     elem.parentNode.remove();
   });
 
-  document.querySelectorAll('div[id^="tpads-pc-"]').forEach((elem) => {
-    // #tpads-pc-top-page
-    // #tpads-pc-balloon
-    // #tpads-pc-article-middle
-    // #tpads-pc-in_image
-    elem.style.display = 'none';
-    elem.remove();
-  });
+  // document.querySelectorAll('div[id^="tpads-pc-"]').forEach((elem) => {
+  //   // #tpads-pc-top-page
+  //   // #tpads-pc-balloon
+  //   // #tpads-pc-article-middle
+  //   // #tpads-pc-in_image
+  //   elem.style.display = 'none';
+  //   elem.remove();
+  // });
 
-  document.querySelectorAll('div[id^="tpads-mb-"]').forEach((elem) => {
-    elem.style.display = 'none';
-    elem.remove();
-  });
+  // document.querySelectorAll('div[id^="tpads-mb-"]').forEach((elem) => {
+  //   elem.style.display = 'none';
+  //   elem.remove();
+  // });
 
   document.querySelectorAll('div[class="gliaplayer-wrapper"]').forEach((elem) => {
     elem.style.display = 'none';
@@ -72,7 +72,7 @@ function removeTags() {
 
 window.addEventListener('DOMContentLoaded', (event) => {
   // DOM fully loaded and parsed
-
+  removeScripts();
   console.log(`[metruyenchu_start.js] DOMContentLoaded - ${document.readyState}`);
 });
 

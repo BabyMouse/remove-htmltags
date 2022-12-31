@@ -31,8 +31,10 @@ function isNumberKey(e) {
 }
 
 function checkS_Noti(e) {
-  document.getElementById('p_noti').options[2].disabled = !e.target.checked;
-  if (!e.target.checked) document.getElementById('p_noti').selectedIndex = 0;
+  const __unchecked = !e.target.checked;
+  let __p_noti = document.getElementById('p_noti');
+  __p_noti.options[2].disabled = __unchecked;
+  if (__unchecked && __p_noti.selectedIndex == 2) __p_noti.selectedIndex = 0;
 }
 
 function saveOptions() {
@@ -67,22 +69,40 @@ function saveOptions() {
 }
 
 function updateUI(restoredSettings) {
-  document.getElementById('s_noti').checked = restoredSettings.s_noti;
+  // showAlert(`${restoredSettings.s_noti+''}: ${typeof (restoredSettings.s_noti+'')}`,'error',true);
+  const __s_noti = restoredSettings.s_noti + '';
+  if (__s_noti === 'true' || __s_noti === 'false') {
+    document.getElementById('s_noti').checked = restoredSettings.s_noti;
+    document.getElementById('p_noti').options[2].disabled = !restoredSettings.s_noti;
+  } else {
+    showAlert(`[browser.storage.local.get(['s_noti'])] = ${__s_noti} - Rertore default.`, 'error', false);
+    document.getElementById('s_noti').checked = _defaultSettings.s_noti;
+    document.getElementById('p_noti').options[2].disabled = !_defaultSettings.s_noti;
+  }
+
   const __timeout = parseInt(restoredSettings.timeout);
   if (Number.isInteger(__timeout)) {
     if (__timeout < 0) {
-      showAlert(`[browser.storage.local.get()] Timeout must be >= 0 - Rertore default.`, 'error', false);
+      showAlert(
+        `[browser.storage.local.get(['timeout'])] Timeout must be >= 0 - Rertore default.`,
+        'error',
+        true
+      );
       document.getElementById('timeout').value = _defaultSettings;
     } else document.getElementById('timeout').value = __timeout;
   } else {
-    showAlert(`[browser.storage.local.get()] Timeout must be number - Rertore default.`, 'error', false);
+    showAlert(
+      `[browser.storage.local.get(['timeout'])] Timeout must be number - Rertore default.`,
+      'error',
+      true
+    );
     document.getElementById('timeout').value = _defaultSettings.timeout;
   }
 
   const __noti = restoredSettings.p_noti;
   if (_notifications.has(__noti)) document.getElementById('p_noti').value = __noti;
   else {
-    showAlert(`[browser.storage.local.get()] = ${__noti}: Rertore default.`, 'error', false);
+    showAlert(`[browser.storage.local.get(['p_noti'])] = ${__noti} - Rertore default.`, 'error', true);
     document.getElementById('p_noti').value = _defaultSettings.p_noti;
   }
 }

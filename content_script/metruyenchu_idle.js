@@ -10,7 +10,6 @@ const _settings = {
 
 function getSettings(restoredSettings) {
   const __num = parseInt(restoredSettings.timeout);
-  //console.log('[metruyenchu_idle.js] +browser.storage.local.get():', __num);
   if (Number.isInteger(__num) && __num > -1) _settings.timeout = __num;
   else
     browser.runtime.sendMessage({
@@ -38,7 +37,7 @@ browser.storage.local.get().then(getSettings, onError);
 function showPopup(title, content) {
   const __styleTag = document.createElement('style');
   __styleTag.setAttribute('type', 'text/css');
-  __styleTag.innerHTML = `.ext-popup{background-color:#ffc;border-radius:3px;border:1px solid #aaa;color:#000;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;font-size:small;left:10px;max-width:40%;min-width:200px;position:fixed;top:10px;z-index:13}.ext-popup>nav>span{display:inline-flex;font-weight:700;margin:5px 0 5px 5px}.ext-popup>nav>label{display:inline}.ext-popup>nav>label::after{content:'✖';cursor:pointer;float:right;font-size:large;font-weight:bolder;height:25px;text-align:center;width:25px}.ext-popup>p{display:block;margin:0 10px 10px 5px;padding:0}`;
+  __styleTag.innerHTML = `.ext-popup{background-color:#ffc;border-radius:3px;border:1px solid #aaa;color:#000;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;font-size:small;left:10px;max-width:60%;min-width:200px;position:fixed;top:10px;z-index:1013}.ext-popup>nav>span{display:inline-flex;font-weight:700;margin:5px 0 5px 5px}.ext-popup>nav>label{display:inline}.ext-popup>nav>label::after{content:'✖';cursor:pointer;float:right;font-size:large;font-weight:bolder;height:25px;text-align:center;width:25px}.ext-popup>p{display:block;margin:0 10px 10px 5px;padding:0}`;
   document.head.append(__styleTag);
 
   const __divTag = document.createElement('div');
@@ -64,13 +63,23 @@ function showPopup(title, content) {
 // }
 
 function afterloaded() {
+  const elem = document.getElementById('article');
+  if (elem != null) elem.style.display = 'block';
+
   document.querySelectorAll('div[id^="gliaplayer-zmedia_"]').forEach((elem) => {
     elem.remove();
     console.log('[metruyenchu_idle.js] gliaplayer-zmedia_');
   });
 
+  document.querySelectorAll('div[id^="tpads-pc-"]').forEach((elem) => {
+    elem.style.display = 'none';
+    // elem.remove();
+    console.log('[metruyenchu_idle.js] tpads-pc-');
+  });
+
   document.querySelectorAll('div[id^="tpads-mb-"]').forEach((elem) => {
-    elem.remove();
+    elem.style.display = 'none';
+    // elem.remove();
     console.log('[metruyenchu_idle.js] tpads-mb-');
   });
 
@@ -92,15 +101,21 @@ function afterloaded() {
   switch (_settings.p_noti) {
     case 'popup':
       showPopup('Remove HTMLTags', `• The script has been completed.\n• readyState: ${document.readyState}.`);
+      break;
     case 'system':
       browser.runtime.sendMessage({
         req: 'notify',
         title: document.title,
         content: `• The script has been completed.\n• readyState: ${document.readyState}.`,
       });
+      console.log(document.title);
+      break;
   }
 
   console.log(`[metruyenchu_idle.js] afterloaded() - ${document.readyState}`);
 }
 
 setTimeout(afterloaded, _settings.timeout * 1000);
+
+// const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+// wait(10 * 1000).then(() => afterloaded());
