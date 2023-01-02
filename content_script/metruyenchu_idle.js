@@ -3,36 +3,8 @@
 console.log(`[metruyenchu_idle.js] ${document.readyState}\n`);
 
 const _notifications = new Set(['off', 'popup', 'system']);
-const _settings = {
-  timeout: 5,
-  p_noti: 'off',
-};
 
-function getSettings(restoredSettings) {
-  const __num = parseInt(restoredSettings.timeout);
-  if (Number.isInteger(__num) && __num > -1) _settings.timeout = __num;
-  else
-    browser.runtime.sendMessage({
-      req: 'notify',
-      title: document.title,
-      content: `• [browser.storage.local] timeout = ${__num}.\n• readyState: ${document.readyState}.`,
-    });
-  if (_notifications.has(restoredSettings.p_noti)) _settings.p_noti = restoredSettings.p_noti;
-  else
-    browser.runtime.sendMessage({
-      req: 'notify',
-      title: document.title,
-      content: `• [browser.storage.local] notification = ${restoredSettings.p_noti}.\n• readyState: ${document.readyState}.`,
-    });
-}
-function onError(e) {
-  browser.runtime.sendMessage({
-    req: 'notify',
-    title: document.title,
-    content: `• [browser.storage.local] ${e}.\n• readyState: ${document.readyState}.`,
-  });
-}
-browser.storage.local.get().then(getSettings, onError);
+let _settings;
 
 function showPopup(title, content) {
   const __styleTag = document.createElement('style');
@@ -53,19 +25,12 @@ function showPopup(title, content) {
   }, 10000);
 }
 
-// const elem = document.getElementById('article');
-// if (elem != null) {
-//   elem.style.display = 'block';
-//   //elem.style.flexWrap = '';
-//   console.log('[metruyenchu_idle.js] #article style: ', elem.style, ` - ${document.readyState}`);
-// } else {
-//   console.log('[metruyenchu_idle.js] #article style: ', elem, ` - ${document.readyState}`);
-// }
-
-function afterloaded() {
+function reformatWebPage() {
   const elem = document.getElementById('article');
   if (elem != null && elem.getElementsByTagName('br').length > 0) elem.style.display = 'block';
+}
 
+function afterloaded() {
   document.querySelectorAll('div[id^="gliaplayer-zmedia_"]').forEach((elem) => {
     elem.remove();
     console.log('[metruyenchu_idle.js] gliaplayer-zmedia_');
@@ -98,6 +63,8 @@ function afterloaded() {
     console.log('[metruyenchu_idle.js] iframe');
   });
 
+  reformatWebPage();
+
   switch (_settings.p_noti) {
     case 'popup':
       showPopup('Remove HTMLTags', `• The script has been completed.\n• readyState: ${document.readyState}.`);
@@ -108,14 +75,16 @@ function afterloaded() {
         title: document.title,
         content: `• The script has been completed.\n• readyState: ${document.readyState}.`,
       });
-      console.log(document.title);
       break;
   }
 
   console.log(`[metruyenchu_idle.js] afterloaded() - ${document.readyState}`);
 }
 
-setTimeout(afterloaded, _settings.timeout * 1000);
+browser.runtime.sendMessage({ req: 'getSettings' }).then((response) => {
+  _settings = response;
+  setTimeout(afterloaded, _settings.timeout * 1000);
+});
 
 // const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 // wait(10 * 1000).then(() => afterloaded());

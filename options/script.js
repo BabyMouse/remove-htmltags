@@ -1,10 +1,7 @@
 const _acceptedKeys = new Set([...new Set('0123456789'), ...['Delete', 'Backspace', 'Enter']]);
 const _notifications = new Set(['off', 'popup', 'system']);
-const _defaultSettings = {
-  s_noti: false,
-  timeout: 5,
-  p_noti: 'off',
-};
+
+let _defaultSettings;
 
 /**
  * Show message with Alert-Box.
@@ -26,7 +23,6 @@ function showAlert(message, type, isAppend) {
 }
 
 function isNumberKey(e) {
-  //showAlert(`${e.key} (${typeof e.key})`, 'info', false);
   if (!_acceptedKeys.has(e.key)) e.preventDefault();
 }
 
@@ -56,10 +52,9 @@ function saveOptions() {
   }
 
   try {
-    browser.storage.local.set({
-      s_noti: getS_Noti(),
-      timeout: getTimeout(),
-      p_noti: getP_Noti(),
+    browser.runtime.sendMessage({
+      req: 'saveSettings',
+      settings: { s_noti: getS_Noti(), timeout: getTimeout(), p_noti: getP_Noti() },
     });
     showAlert('Successfully saved settings.', 'success', false);
   } catch (error) {
@@ -69,42 +64,15 @@ function saveOptions() {
 }
 
 function updateUI(restoredSettings) {
-  // showAlert(`${restoredSettings.s_noti+''}: ${typeof (restoredSettings.s_noti+'')}`,'error',true);
-  const __s_noti = restoredSettings.s_noti + '';
-  if (__s_noti === 'true' || __s_noti === 'false') {
-    document.getElementById('s_noti').checked = restoredSettings.s_noti;
-    document.getElementById('p_noti').options[2].disabled = !restoredSettings.s_noti;
-  } else {
-    showAlert(`[browser.storage.local.get(['s_noti'])] = ${__s_noti} - Rertore default.`, 'error', false);
-    document.getElementById('s_noti').checked = _defaultSettings.s_noti;
-    document.getElementById('p_noti').options[2].disabled = !_defaultSettings.s_noti;
-  }
+  document.getElementById('s_noti').checked = restoredSettings.s_noti;
+  document.getElementById('p_noti').options[2].disabled = !restoredSettings.s_noti;
+  document.getElementById('timeout').value = restoredSettings.timeout;
+  document.getElementById('p_noti').value = restoredSettings.p_noti;
+}
 
-  const __timeout = parseInt(restoredSettings.timeout);
-  if (Number.isInteger(__timeout)) {
-    if (__timeout < 0) {
-      showAlert(
-        `[browser.storage.local.get(['timeout'])] Timeout must be >= 0 - Rertore default.`,
-        'error',
-        true
-      );
-      document.getElementById('timeout').value = _defaultSettings;
-    } else document.getElementById('timeout').value = __timeout;
-  } else {
-    showAlert(
-      `[browser.storage.local.get(['timeout'])] Timeout must be number - Rertore default.`,
-      'error',
-      true
-    );
-    document.getElementById('timeout').value = _defaultSettings.timeout;
-  }
-
-  const __noti = restoredSettings.p_noti;
-  if (_notifications.has(__noti)) document.getElementById('p_noti').value = __noti;
-  else {
-    showAlert(`[browser.storage.local.get(['p_noti'])] = ${__noti} - Rertore default.`, 'error', true);
-    document.getElementById('p_noti').value = _defaultSettings.p_noti;
-  }
+function getAllSettings(allSettings) {
+  _defaultSettings = allSettings.defaultSettings;
+  updateUI(allSettings.settings);
 }
 
 function restoreDefault() {
@@ -117,7 +85,7 @@ function onError(e) {
   showAlert(`[browser.storage.local] ${e}`, 'error', false);
 }
 
-browser.storage.local.get().then(updateUI, onError);
+browser.runtime.sendMessage({ req: 'getAllSettings' }).then(getAllSettings, onError);
 document.getElementById('s_noti').addEventListener('change', checkS_Noti);
 document.getElementById('timeout').addEventListener('keydown', isNumberKey);
 document.getElementById('save').addEventListener('click', saveOptions);
