@@ -63,8 +63,8 @@ function showPopup(title, content) {
 // }
 
 function afterloaded() {
-  // const elem = document.getElementById('article');
-  // if (elem != null) elem.style.display = 'block';
+  const elem = document.getElementById('article');
+  if (elem != null && elem.getElementsByTagName('br').length > 0) elem.style.display = 'block';
 
   document.querySelectorAll('div[id^="gliaplayer-zmedia_"]').forEach((elem) => {
     elem.remove();
