@@ -4,5 +4,5 @@
 
 ## MV2 -> MV3 (*Firefox will support after 17.1.2023*)
 ### File `manifest.json`
-- [ ] Change: `"browser_action" -> "action"`
-- [ ] Delete: `\background\"persistent": false`
+- [ ] Change: `browser_action` -> `action`
+- [ ] Delete: `background\persistent: false`

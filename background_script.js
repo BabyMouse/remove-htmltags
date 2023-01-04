@@ -47,7 +47,7 @@ function onError(e) {
   notify({ content: `[browser.storage.local] ${e}` });
 }
 
-function runtimeEventHadler(message) {
+function runtimeEventHandler(message) {
   switch (message.req) {
     case 'notify':
       if (_settings.s_noti) notify(message);
@@ -64,7 +64,7 @@ function runtimeEventHadler(message) {
 }
 
 browser.storage.local.get().then(getSettings, onError);
-browser.runtime.onMessage.addListener(runtimeEventHadler);
+browser.runtime.onMessage.addListener(runtimeEventHandler);
 
 // function handleActivated(activeInfo) {
 //   console.log(`Tab ${activeInfo.tabId} was activated`);

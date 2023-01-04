@@ -2,8 +2,6 @@
 
 console.log(`[metruyenchu_idle.js] ${document.readyState}\n`);
 
-const _notifications = new Set(['off', 'popup', 'system']);
-
 let _settings;
 
 function showPopup(title, content) {
@@ -26,8 +24,17 @@ function showPopup(title, content) {
 }
 
 function reformatWebPage() {
-  const elem = document.getElementById('article');
-  if (elem != null && elem.getElementsByTagName('br').length > 0) elem.style.display = 'block';
+  const __elem = document.getElementById('article');
+  if (__elem != null) {
+    const __styleTag = document.createElement('style');
+    __styleTag.setAttribute('type', 'text/css');
+    if (__elem.getElementsByTagName('canvas').length > 0) {
+      __styleTag.innerHTML = `.c-c>canvas{margin-bottom:1em}`;
+    } else if (__elem.getElementsByTagName('p').length == 0) {
+      __styleTag.innerHTML = `.c-c{display:block}`;
+    }
+    document.body.append(__styleTag);
+  }
 }
 
 function afterloaded() {
@@ -67,7 +74,12 @@ function afterloaded() {
 
   switch (_settings.p_noti) {
     case 'popup':
-      showPopup('Remove HTMLTags', `• The script has been completed.\n• readyState: ${document.readyState}.`);
+      showPopup(
+        'Remove HTMLTags',
+        `• The script has been completed.\n• readyState: ${
+          document.readyState
+        }.\n• settings = ${JSON.stringify(_settings, null, 4)}`
+      );
       break;
     case 'system':
       browser.runtime.sendMessage({
@@ -82,7 +94,7 @@ function afterloaded() {
 }
 
 browser.runtime.sendMessage({ req: 'getSettings' }).then((response) => {
-  _settings = response;
+  _settings = response ?? { timeout: 5, p_noti: 'off' };
   setTimeout(afterloaded, _settings.timeout * 1000);
 });
 
