@@ -1,11 +1,10 @@
 # Remove HTML tags
 - Created: 2022.12.15
-- Updated: 2022.12.30
+- Updated: 2023.01.05
 
 Remove HTML Tags extension for Firefox browser.
 
-## Table of contents
-- [Table of contents](#table-of-contents)
+### Table of contents
 - [About this extension](#about-this-extension)
 - [Minimum supported browser versions](#minimum-supported-browser-versions)
 - [Installation](#installation)
@@ -26,40 +25,40 @@ Remove HTML Tags extension for Firefox browser.
 ## Installation
 - Desktop PC: https://addons.mozilla.org/addon/remove-htmltags
 - Mobile: Tested only on Android OS with Firefox Nightly.
+
   Ref: https://blog.mozilla.org/addons/2020/09/29/expanded-extension-support-in-firefox-for-android-nightly
 
 ## Development (on Desktop Windows)
 1. Set Windows `PowerShell` the execution policy
-- Turn off
-    ```PowerShell
-    Set-ExecutionPolicy RemoteSigned
-    ```
- - Turn on
-    ```PowerShell
-    Set-ExecutionPolicy Restricted
-    ```
- - Ref: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies
-1. Install `nvm`
-  - Ref: https://github.com/coreybutler/nvm-windows/releases
-2. Install `Note.js`
+   - Turn off
+      ```PowerShell
+      Set-ExecutionPolicy RemoteSigned
+      ```
+   - Turn on
+      ```PowerShell
+      Set-ExecutionPolicy Restricted
+      ```
+   - Ref: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies
+2. Install `nvm`
+   - Ref: https://github.com/coreybutler/nvm-windows/releases
+3. Install `Note.js`
     ```
     npm install -g npm
     ```
-3. Install `web-ext`
+4. Install `web-ext`
     ```
     npm install --global web-ext
     ```
-  - Ref: https://github.com/mozilla/web-ext
-4. Install `Deskop GitHub`
-
-- Run extension
-  ```
-  web-ext run
-  ```
-- Build extension
-  ```
-  web-ext build
-  ```
+     - Ref: https://github.com/mozilla/web-ext
+5. Install `Deskop GitHub`
+   - Run extension
+      ```
+      web-ext run
+      ```
+   - Build extension
+      ```
+      web-ext build
+      ```
 
 ## Release
 All versions: https://github.com/BabyMouse/remove-htmltags/tree/main/web-ext-artifacts

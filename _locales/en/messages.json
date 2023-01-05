@@ -1,0 +1,57 @@
+{
+  "extensionName": {
+    "message": "Remove HTMLTags",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Remove HTML tags.",
+    "description": "Description of the extension."
+  },
+  "extensionDeveloper": {
+    "message": "Quang-Thuy Trat",
+    "description": "Developer name of the extension."
+  },
+  "alert-box_close": {
+    "message": "Close"
+  },
+  "ops_title": {
+    "message": "Settings",
+    "description": "Title of Options page."
+  },
+  "ops_0": {
+    "message": "System settings"
+  },
+  "ops_0_0": {
+    "message": "Show notifications on system status"
+  },
+  "ops_1": {
+    "message": "For each webpage Settings"
+  },
+  "ops_1_0": {
+    "message": "Run the script after delay some seconds"
+  },
+  "ops_1_0_0": {
+    "message": "Delay:"
+  },
+  "ops_1_0_1": {
+    "message": "Show notification:"
+  },
+  "ops_1_0_1_0": {
+    "message": "Off"
+  },
+  "ops_1_0_1_1": {
+    "message": "Popup each webpage"
+  },
+  "ops_1_0_1_2": {
+    "message": "System notifications"
+  },
+  "ops_2_0": {
+    "message": "Save Settings"
+  },
+  "ops_2_1": {
+    "message": "Retore Defaut"
+  },
+  "act_title": {
+    "message": "Tools"
+  }
+}

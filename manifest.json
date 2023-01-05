@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
-  "name": "Remove HTMLTags",
-  "description": "Remove HTML tags.",
-  "version": "1.1.16.1",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "1.1.17.0",
   "icons": {
     "64": "icons/icon-64.png"
   },
   "homepage_url": "https://github.com/BabyMouse/remove-htmltags",
   "developer": {
-    "name": "Trát Quang Thụy",
+    "name": "__MSG_extensionDeveloper__",
     "url": "https://github.com/BabyMouse/remove-htmltags"
   },
   "browser_specific_settings": {
@@ -66,5 +66,6 @@
   },
   "options_ui": {
     "page": "options/index.html"
-  }
+  },
+  "default_locale": "en"
 }

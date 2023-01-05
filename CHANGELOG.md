@@ -1,15 +1,19 @@
 # Changelog
 - Created: 2022.12.15
-- Updated: 2022.12.30
+- Updated: 2023.01.06
 
 All notable changes to this project will be documented in this file.
 
-## [1.1.x]
+## [1.1.x.x]
 ### Added
 - 
 
 ### Changed
 - 
+
+## [1.1.17.0] - 2023.01.06
+### Added
+- Localize.
 
 ## [1.1.15] - 2022.12.30
 ### Added

@@ -26,14 +26,17 @@ function showPopup(title, content) {
 function reformatWebPage() {
   const __elem = document.getElementById('article');
   if (__elem != null) {
-    const __styleTag = document.createElement('style');
-    __styleTag.setAttribute('type', 'text/css');
     if (__elem.getElementsByTagName('canvas').length > 0) {
+      const __styleTag = document.createElement('style');
+      __styleTag.setAttribute('type', 'text/css');
       __styleTag.innerHTML = `.c-c>canvas{margin-bottom:1em}`;
+      document.body.append(__styleTag);
     } else if (__elem.getElementsByTagName('p').length == 0) {
+      const __styleTag = document.createElement('style');
+      __styleTag.setAttribute('type', 'text/css');
       __styleTag.innerHTML = `.c-c{display:block}`;
+      document.body.append(__styleTag);
     }
-    document.body.append(__styleTag);
   }
 }
 

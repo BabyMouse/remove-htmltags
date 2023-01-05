@@ -1,3 +1,6 @@
+import { i18n } from '../_locales/i18n.mjs';
+i18n();
+
 const _acceptedKeys = new Set([...new Set('0123456789'), ...['Delete', 'Backspace', 'Enter']]);
 const _notifications = new Set(['off', 'popup', 'system']);
 

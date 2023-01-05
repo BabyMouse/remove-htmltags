@@ -41,28 +41,15 @@ function removeTags() {
   });
 
   document.querySelectorAll('a[href^="https://c.lazada.vn"]').forEach((elem) => {
-    elem.style.display = 'none';
-    elem.parentNode.remove();
+    // elem.style.display = 'none';
+    // elem.parentNode.remove();
+    elem.remove();
   });
 
   document.querySelectorAll('a[href^="https://tags.native-ad.net"]').forEach((elem) => {
     elem.style.display = 'none';
     elem.parentNode.remove();
   });
-
-  // document.querySelectorAll('div[id^="tpads-pc-"]').forEach((elem) => {
-  //   // #tpads-pc-top-page
-  //   // #tpads-pc-balloon
-  //   // #tpads-pc-article-middle
-  //   // #tpads-pc-in_image
-  //   elem.style.display = 'none';
-  //   elem.remove();
-  // });
-
-  // document.querySelectorAll('div[id^="tpads-mb-"]').forEach((elem) => {
-  //   elem.style.display = 'none';
-  //   elem.remove();
-  // });
 
   document.querySelectorAll('div[class="gliaplayer-wrapper"]').forEach((elem) => {
     elem.style.display = 'none';
