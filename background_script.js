@@ -9,16 +9,17 @@ let _settings = _defaultSettings;
 
 /**
  * Use browser.notifications.create() method to show notification on system status.
- * @param {Object} message - 
+ * @param {Object} message -
  * @param {string} [message.title = Remove HTMLTags] - Default value is 'Remove HTMLTags'.
  * @param {string} [message.content] - Default value is string empty.
  */
 function notify(message) {
-  browser.notifications.create({
-    type: 'basic',
-    title: message.title ?? 'Remove HTMLTags',
-    message: message.content ?? 'abc',
-  });
+  if (_settings.s_noti)
+    browser.notifications.create({
+      type: 'basic',
+      title: message.title ?? 'Remove HTMLTags',
+      message: message.content ?? '',
+    });
 }
 
 function getSettings(restoredSettings) {

@@ -4,7 +4,7 @@ module.exports = {
     overwriteDest: true,
   },
   run: {
-    adbBin: 'D:Codeplatform-tools_r33.0.3-windows',
+    adbBin: 'D:/Code/platform-tools_r33.0.3-windows',
     target: ['firefox-android'],
     firefoxApk: 'org.mozilla.fenix',
   },

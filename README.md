@@ -42,21 +42,21 @@ Remove HTML Tags extension for Firefox browser.
 2. Install `nvm`
    - Ref: https://github.com/coreybutler/nvm-windows/releases
 3. Install `Note.js`
-    ```
+    ```PowerShell
     npm install -g npm
     ```
 4. Install `web-ext`
-    ```
+    ```PowerShell
     npm install --global web-ext
     ```
      - Ref: https://github.com/mozilla/web-ext
 5. Install `Deskop GitHub`
    - Run extension
-      ```
+      ```Batchfile
       web-ext run
       ```
    - Build extension
-      ```
+      ```Batchfile
       web-ext build
       ```
 

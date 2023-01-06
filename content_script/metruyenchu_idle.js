@@ -7,7 +7,7 @@ let _settings;
 function showPopup(title, content) {
   const __styleTag = document.createElement('style');
   __styleTag.setAttribute('type', 'text/css');
-  __styleTag.innerHTML = `.ext-popup{background-color:#ffc;border-radius:3px;border:1px solid #aaa;color:#000;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;font-size:small;left:10px;max-width:60%;min-width:200px;position:fixed;top:10px;z-index:1013}.ext-popup>nav>span{display:inline-flex;font-weight:700;margin:5px 0 5px 5px}.ext-popup>nav>label{display:inline}.ext-popup>nav>label::after{content:'✖';cursor:pointer;float:right;font-size:large;font-weight:bolder;height:25px;text-align:center;width:25px}.ext-popup>p{display:block;margin:0 10px 10px 5px;padding:0}`;
+  __styleTag.innerHTML = `.ext-popup{background-color:#ffc;border-radius:3px;border:1px solid #aaa;color:#000;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;font-size:small;left:10px;max-width:70%;min-width:200px;position:fixed;top:10px;z-index:1013}.ext-popup>nav>span{display:inline-flex;font-weight:700;margin:5px 0 5px 5px}.ext-popup>nav>label{display:inline}.ext-popup>nav>label::after{content:'✖';cursor:pointer;float:right;font-size:large;font-weight:bolder;height:25px;text-align:center;width:25px}.ext-popup>p{display:block;margin:0 10px 10px 5px;padding:0}`;
   document.head.append(__styleTag);
 
   const __divTag = document.createElement('div');
