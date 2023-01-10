@@ -1,57 +1,30 @@
 {
-  "extensionName": {
-    "message": "Remove HTMLTags",
-    "description": "Tên của Tiện ích mở rộng."
-  },
-  "extensionDescription": {
-    "message": "Xóa các thẻ HTML.",
-    "description": "Miêu tả Tiện ích mở rộng."
-  },
-  "extensionDeveloper": {
-    "message": "Trát Quang Thụy",
-    "description": "Tên người phát triển Tiện ích mở rộng."
-  },
-  "alert-box_close": {
-    "message": "Đóng"
-  },
-  "ops_title": {
-    "message": "Các tùy chỉnh",
-    "description": "Tựa đề trang Tùy chọn."
-  },
-  "ops_0": {
-    "message": "Các cài đặt về hệ thống"
-  },
-  "ops_0_0": {
-    "message": "Hiển thị thông báo trên hệ thống"
-  },
-  "ops_1": {
-    "message": "Cài đặt cho mỗi trang web"
-  },
-  "ops_1_0": {
-    "message": "Chạy kịch bản sau một số giây"
-  },
-  "ops_1_0_0": {
-    "message": "Thời gian chờ:"
-  },
-  "ops_1_0_1": {
-    "message": "Hiển thị thông báo:"
-  },
-  "ops_1_0_1_0": {
-    "message": "Tắt"
-  },
-  "ops_1_0_1_1": {
-    "message": "Popup mỗi trang web"
-  },
-  "ops_1_0_1_2": {
-    "message": "Hệ thống thông báo"
-  },
-  "ops_2_0": {
-    "message": "Lưu cài đặt"
-  },
-  "ops_2_1": {
-    "message": "Mặt định"
-  },
-  "act_title": {
-    "message": "Các công cụ"
-  }
+  "extensionName": { "message": "Remove HTMLTags", "description": "Tên của Tiện ích mở rộng." },
+  "extensionDescription": { "message": "Xóa các thẻ HTML.", "description": "Miêu tả Tiện ích mở rộng." },
+  "extensionDeveloper": { "message": "Trát Quang Thụy", "description": "Tên người phát triển Tiện ích mở rộng." },
+  "btnClose_hint": { "message": "Đóng" },
+  "btnCopy": { "message": "Chép" },
+  "btnCopy_hint": { "message": "Chép vào bộ nhớ tạm" },
+  "btnRestore": { "message": "Mặt định" },
+  "btnRestore_hint": { "message": "Khôi phục cài đặt gốc" },
+  "btnSave": { "message": "Lưu cài đặt" },
+  "btnSave_hint": { "message": "Lưu cài đặt" },
+  "actTitle": { "message": "Các công cụ" },
+  "act.1": { "message": "Xuống dòng" },
+  "act.2": { "message": "Xem mã nguồn" },
+  "cnt.1": { "message": "Kịch bản đã hoàn thành." },
+  "opsTitle": { "message": "Các tùy chỉnh", "description": "Tựa đề trang Tùy chọn." },
+  "opsMsg.1": { "message": "Đã thành công lưu các cài đặt." },
+  "opsMsg.2": { "message": "Các cài đặt không được lưu." },
+  "ops.0": { "message": "Các cài đặt về hệ thống" },
+  "ops.0.0": { "message": "Hiển thị thông báo trên hệ thống" },
+  "ops.1": { "message": "Cài đặt cho mỗi trang web" },
+  "ops.1.0": { "message": "Chạy kịch bản sau một số giây" },
+  "ops.1.0.0": { "message": "Thời gian chờ:" },
+  "ops.1.0.1": { "message": "Hiển thị thông báo:" },
+  "ops.1.0.1.0": { "message": "Tắt" },
+  "ops.1.0.1.1": { "message": "Popup mỗi trang web" },
+  "ops.1.0.1.2": { "message": "Hệ thống thông báo" },
+  "errTimeout.1": { "message": "Thời gian chờ phải >= 0" },
+  "errTimeout.2": { "message": "Thời gian chờ phải là kiểu số nguyên" }
 }

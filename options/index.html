@@ -1,56 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link href="style.css" rel="stylesheet" />
-    <script async type="module" src="script.js"></script>
-  </head>
-  <body>
-    <main>
-      <h1 data-i18n="ops_title"></h1>
-      <acticle class="alert-box display-none">
-        <input id="alert1" type="checkbox" />
-        <div class="alert">
-          <label class="close" for="alert1" data-i18n="alert-box_close|title"></label>
-          <ul class="inner"></ul>
-        </div>
-      </acticle>
-      <acticle>
-        <h2 data-i18n="ops_0"></h2>
-        <input id="s_noti" type="checkbox" /><label id="lbs_noti" for="s_noti" data-i18n="ops_0_0"></label>
-      </acticle>
-      <acticle>
-        <h2 data-i18n="ops_1"></h2>
-        <article>
-          <h3 data-i18n="ops_1_0"></h3>
-          <section>
-            <span data-i18n="ops_1_0_0"></span>
-            <input
-              id="timeout"
-              type="number"
-              inputmode="numeric"
-              pattern="\d*"
-              placeholder="Second(s)"
-              value="3"
-              min="0"
-              required
-            /><span class="validity"></span>
-          </section>
-          <section>
-            <span data-i18n="ops_1_0_1"></span>
-            <select id="p_noti">
-              <option value="off" selected data-i18n="ops_1_0_1_0"></option>
-              <option value="popup" data-i18n="ops_1_0_1_1"></option>
-              <option value="system" disabled data-i18n="ops_1_0_1_2"></option>
-            </select>
-          </section>
-        </article>
-      </acticle>
-      <acticle>
-        <button id="save" class="btn" type="submit" data-i18n="ops_2_0"></button>
-        <button id="restore" class="btn" type="button" data-i18n="ops_2_1"></button>
-      </acticle>
-    </main>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="style.css" />
+  <script async type="module" src="script.mjs"></script>
+</head>
+<body>
+  <main>
+    <h1 data-i18n="opsTitle"></h1>
+    <hr />
+    <acticle class="alert-box display-none">
+      <input id="alert1" type="checkbox" />
+      <div class="alert">
+        <label class="close" for="alert1" data-i18n="btnClose_hint|title"></label>
+        <ul class="inner"></ul>
+      </div>
+    </acticle>
+    <acticle>
+      <h2 data-i18n="ops.0"></h2>
+      <input id="s_noti" type="checkbox" /><label id="lbs_noti" for="s_noti" data-i18n="ops.0.0"></label>
+    </acticle>
+    <acticle>
+      <h2 data-i18n="ops.1"></h2>
+      <article>
+        <h3 data-i18n="ops.1.0"></h3>
+        <section>
+          <span data-i18n="ops.1.0.0"></span>
+          <input id="timeout" type="number" inputmode="numeric" pattern="\d*" placeholder="Second(s)" value="3" min="0"
+                 required /><span class="validity"></span>
+        </section>
+        <section>
+          <span data-i18n="ops.1.0.1"></span>
+          <select id="p_noti">
+            <option value="off" selected data-i18n="ops.1.0.1.0"></option>
+            <option value="popup" data-i18n="ops.1.0.1.1"></option>
+            <option value="system" disabled data-i18n="ops.1.0.1.2"></option>
+          </select>
+        </section>
+      </article>
+    </acticle>
+    <hr />
+    <acticle>
+      <button id="save" class="btn" type="button" data-i18n="btnSave_hint|title,btnSave"></button>
+      <button id="restore" class="btn" type="button" data-i18n="btnRestore_hint|title,btnRestore"></button>
+    </acticle>
+  </main>
+</body>
 </html>

@@ -43,34 +43,34 @@ function reformatWebPage() {
 function afterloaded() {
   document.querySelectorAll('div[id^="gliaplayer-zmedia_"]').forEach((elem) => {
     elem.remove();
-    console.log('[metruyenchu_idle.js] gliaplayer-zmedia_');
+    // console.log('[metruyenchu_idle.js] gliaplayer-zmedia_');
   });
 
   document.querySelectorAll('div[id^="tpads-pc-"]').forEach((elem) => {
     elem.style.display = 'none';
     // elem.remove();
-    console.log('[metruyenchu_idle.js] tpads-pc-');
+    // console.log('[metruyenchu_idle.js] tpads-pc-');
   });
 
   document.querySelectorAll('div[id^="tpads-mb-"]').forEach((elem) => {
     elem.style.display = 'none';
     // elem.remove();
-    console.log('[metruyenchu_idle.js] tpads-mb-');
+    // console.log('[metruyenchu_idle.js] tpads-mb-');
   });
 
   document.querySelectorAll('a[href^="https://tags.native-ad.net"]').forEach((elem) => {
     elem.parentNode.remove();
-    console.log('[metruyenchu_idle.js] https://tags.native-ad.net');
+    // console.log('[metruyenchu_idle.js] https://tags.native-ad.net');
   });
 
   document.querySelectorAll('body > script:not([src])').forEach((elem) => {
     elem.remove();
-    console.log('[metruyenchu_idle.js] body > script:not([src])');
+    // console.log('[metruyenchu_idle.js] body > script:not([src])');
   });
 
   document.querySelectorAll('iframe').forEach((elem) => {
     elem.remove();
-    console.log('[metruyenchu_idle.js] iframe');
+    // console.log('[metruyenchu_idle.js] iframe');
   });
 
   reformatWebPage();
@@ -78,17 +78,17 @@ function afterloaded() {
   switch (_settings.p_noti) {
     case 'popup':
       showPopup(
-        'Remove HTMLTags',
-        `• The script has been completed.\n• readyState: ${
-          document.readyState
-        }.\n• settings = ${JSON.stringify(_settings, null, 4)}`
+        browser.i18n.getMessage('extensionName'),
+        `• ${browser.i18n.getMessage('cntMsg.1')}
+         • readyState: ${document.readyState}.
+         • settings = ${JSON.stringify(_settings, null, 4)}`
       );
       break;
     case 'system':
       browser.runtime.sendMessage({
         req: 'notify',
         title: document.title,
-        content: `• The script has been completed.\n• readyState: ${document.readyState}.`,
+        content: `• ${browser.i18n.getMessage('cntMsg.1')}\n• readyState: ${document.readyState}.`,
       });
       break;
   }

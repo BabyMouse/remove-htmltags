@@ -3,7 +3,7 @@
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
   "author": "__MSG_extensionDeveloper__",
-  "version": "1.1.17.1",
+  "version": "1.1.17.2",
   "icons": {
     "64": "icons/icon-64.png"
   },
@@ -17,15 +17,15 @@
       "id": "{2ab832d6-c295-410f-9c54-d2f99df671f3}"
     }
   },
-  "permissions": ["browsingData", "clipboardWrite", "notifications", "storage", "tabs", "<all_urls>"],
+  "permissions": [ "browsingData", "clipboardWrite", "notifications", "storage", "tabs", "<all_urls>" ],
   "background": {
-    "scripts": ["background_script.js"],
+    "page": "background/index.html",
     "persistent": true
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content_script/get_source_code.js"]
+      "matches": [ "<all_urls>" ],
+      "js": [ "content_script/get_source_code.js" ]
     },
     {
       "matches": [
@@ -36,7 +36,7 @@
       ],
       "run_at": "document_start",
       "all_frames": true,
-      "js": ["content_script/metruyenchu_start.js"]
+      "js": [ "content_script/metruyenchu_start.js" ]
     },
     {
       "matches": [
@@ -47,7 +47,7 @@
       ],
       "run_at": "document_end",
       "all_frames": true,
-      "js": ["content_script/metruyenchu_end.js"]
+      "js": [ "content_script/metruyenchu_end.js" ]
     },
     {
       "matches": [
@@ -58,7 +58,7 @@
       ],
       "run_at": "document_idle",
       "all_frames": true,
-      "js": ["content_script/metruyenchu_idle.js"]
+      "js": [ "content_script/metruyenchu_idle.js" ]
     }
   ],
   "browser_action": {

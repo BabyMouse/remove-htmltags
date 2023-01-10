@@ -1,0 +1,33 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[html]": {
+    "editor.linkedEditing": true,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "css.format.newlineBetweenRules": false,
+  "css.format.newlineBetweenSelectors": false,
+  "css.format.preserveNewLines": true,
+  "css.format.spaceAroundSelectorSeparator": true,
+  "editor.links": false,
+  "editor.tabSize": 2,
+  "html.format.extraLiners": "",
+  "html.format.indentInnerHtml": false,
+  "html.format.wrapAttributes": "aligned-multiple",
+  "javascript.format.semicolons": "insert",
+  "javascript.preferences.quoteStyle": "single",
+  "json.format.keepLines": true,
+  "markdown.extension.toc.levels": "2..3",
+  "prettier.singleAttributePerLine": false,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 130,
+  "editor.minimap.autohide": false,
+  "editor.minimap.enabled": false
+}

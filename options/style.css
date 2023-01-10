@@ -4,6 +4,12 @@
 main {
   font-size: 14px;
 }
+h2 {
+  color: #00f;
+}
+hr {
+  border: 1px ridge;
+}
 article {
   margin-bottom: 15px;
 }

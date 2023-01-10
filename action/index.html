@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link href="style.css" rel="stylesheet" />
-    <script async type="module" src="script.js"></script>
-  </head>
-  <body>
-    <h1 data-i18n="act_title"></h1>
-    <section>
-      <label id="title" for="host"></label>
-      <input id="host" type="text" />
-    </section>
-    <section>
-      <nav>
-        <div class="float--right">
-          <input id="ckbWrap" type="checkbox" /><label id="lbWrap" for="ckbWrap">Word wrap</label>
-          <button id="btnCopy" class="btn">Copy</button>
-        </div>
-        <label id="lbCode" for="code">View source</label>
-        <textarea id="code" rows="20" wrap="off"></textarea>
-      </nav>
-    </section>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="style.css" />
+  <script async type="module" src="script.mjs"></script>
+</head>
+<body>
+  <h1 data-i18n="actTitle"></h1>
+  <section>
+    <label id="title" for="host"></label>
+    <input id="host" type="text" />
+  </section>
+  <section>
+    <nav>
+      <div class="float--right">
+        <input id="ckbWrap" type="checkbox" /><label id="lbWrap" for="ckbWrap" data-i18n="act.1"></label>
+        <button id="btnCopy" class="btn" data-i18n="btnCopy_hint|title,btnCopy"></button>
+      </div>
+      <label id="lbCode" for="code"data-i18n="act.2"></label>
+      <textarea id="code" rows="20" wrap="off"></textarea>
+    </nav>
+  </section>
+</body>
 </html>

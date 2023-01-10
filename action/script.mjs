@@ -1,5 +1,4 @@
-import { i18n } from '../_locales/i18n.mjs';
-i18n();
+import '../_locales/i18n.mjs';
 
 document.getElementById('ckbWrap').addEventListener('change', (event) => {
   document.getElementById('code').wrap = event.target.checked ? 'soft' : 'off';

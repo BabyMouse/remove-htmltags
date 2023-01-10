@@ -5,7 +5,7 @@
 /**
  * Localize Html Page.
  */
-export function i18n() {
+function i18n() {
   document.querySelectorAll('[data-i18n]').forEach((node) => {
     node.dataset.i18n.split(',').forEach((n) => {
       let [text, attr] = n.split('|');
@@ -14,3 +14,4 @@ export function i18n() {
     });
   });
 }
+i18n();
